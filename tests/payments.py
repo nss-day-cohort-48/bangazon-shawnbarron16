@@ -4,7 +4,7 @@ import json
 from django.http.response import Http404
 from rest_framework import status
 from rest_framework.test import APITestCase
-
+from bangazonapi.models import Payment
 
 class PaymentTests(APITestCase):
     def setUp(self) -> None:
@@ -42,7 +42,7 @@ class PaymentTests(APITestCase):
         self.assertEqual(json_response["expiration_date"], "2024-12-31")
         self.assertEqual(json_response["create_date"], str(datetime.date.today()))
 
-    # TODO: Delete payment type
+
 
     def test_delete_payment_type(self):
         """Ensure we can delete a payment type
